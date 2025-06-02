@@ -8,6 +8,7 @@ import { Clinica } from './entities/clinic';
 import { ReporteMedico } from './entities/report';
 import { Reserva } from './entities/reserve';
 import { TurnoMedico } from './entities/shift';
+import { PacienteModule } from './paciente/paciente.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -20,7 +21,7 @@ import { TurnoMedico } from './entities/shift';
     synchronize: true,
     logging: true,
     entities: [Paciente,Medico,Clinica,ReporteMedico,Reserva,TurnoMedico,Especialidad],
-  })],
+  }), PacienteModule],
   controllers: [AppController],
   providers: [AppService],
 })

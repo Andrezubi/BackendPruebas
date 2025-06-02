@@ -17,6 +17,7 @@ const clinic_1 = require("./entities/clinic");
 const report_1 = require("./entities/report");
 const reserve_1 = require("./entities/reserve");
 const shift_1 = require("./entities/shift");
+const paciente_module_1 = require("./paciente/paciente.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -32,7 +33,7 @@ exports.AppModule = AppModule = __decorate([
                 synchronize: true,
                 logging: true,
                 entities: [users_1.Paciente, users_1.Medico, clinic_1.Clinica, report_1.ReporteMedico, reserve_1.Reserva, shift_1.TurnoMedico, specialty_1.Especialidad],
-            })],
+            }), paciente_module_1.PacienteModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

@@ -24,6 +24,7 @@ let PacienteService = class PacienteService {
     }
     create(createPacienteDto) {
         const newPaciente = this.pacieteRepository.create({ ...createPacienteDto, fechaNac: new Date() });
+        console.log("se creo exitosamente el paciente");
         return this.pacieteRepository.save(newPaciente);
     }
     findAll() {

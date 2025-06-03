@@ -14,6 +14,7 @@ export class PacienteService {
 
   create(createPacienteDto: CreatePacienteDto) {
     const newPaciente= this.pacieteRepository.create({...createPacienteDto,fechaNac: new Date()});
+    console.log("se creo exitosamente el paciente");
     return this.pacieteRepository.save(newPaciente);
     
   }

@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const medico_service_1 = require("./medico.service");
 const create_medico_dto_1 = require("./dto/create-medico.dto");
 const update_medico_dto_1 = require("./dto/update-medico.dto");
+const login_medico_dto_1 = require("./dto/login-medico.dto");
 let MedicoController = class MedicoController {
     medicoService;
     constructor(medicoService) {
@@ -24,6 +25,12 @@ let MedicoController = class MedicoController {
     }
     create(createMedicoDto) {
         return this.medicoService.create(createMedicoDto);
+    }
+    login(loginMedicoDto) {
+        return this.medicoService.login(loginMedicoDto);
+    }
+    findByEmail(body) {
+        return this.medicoService.findOneByEmail(body.correoElectronico);
     }
     findAll() {
         return this.medicoService.findAll();
@@ -46,6 +53,20 @@ __decorate([
     __metadata("design:paramtypes", [create_medico_dto_1.CreateMedicoDto]),
     __metadata("design:returntype", void 0)
 ], MedicoController.prototype, "create", null);
+__decorate([
+    (0, common_1.Post)('login'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [login_medico_dto_1.LoginMedicoDto]),
+    __metadata("design:returntype", void 0)
+], MedicoController.prototype, "login", null);
+__decorate([
+    (0, common_1.Post)('email'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], MedicoController.prototype, "findByEmail", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),

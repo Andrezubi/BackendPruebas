@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { MedicoService } from './medico.service';
 import { CreateMedicoDto } from './dto/create-medico.dto';
 import { UpdateMedicoDto } from './dto/update-medico.dto';
+import { LoginMedicoDto } from './dto/login-medico.dto';
 
 @Controller('medico')
 export class MedicoController {
@@ -10,6 +11,16 @@ export class MedicoController {
   @Post()
   create(@Body() createMedicoDto: CreateMedicoDto) {
     return this.medicoService.create(createMedicoDto);
+  }
+
+  @Post('login')
+  login(@Body() loginMedicoDto:LoginMedicoDto){
+  return this.medicoService.login(loginMedicoDto);
+  }
+  
+  @Post('email')
+  findByEmail(@Body() body: { correoElectronico: string }) {
+  return this.medicoService.findOneByEmail(body.correoElectronico);
   }
 
   @Get()

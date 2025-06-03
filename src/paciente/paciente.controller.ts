@@ -17,10 +17,10 @@ export class PacienteController {
     return this.pacienteService.login(loginPacienteDto);
   }
 
- @Post('email')
-findByEmail(@Body() body: { correoElectronico: string }) {
+  @Post('email')
+  findByEmail(@Body() body: { correoElectronico: string }) {
   return this.pacienteService.findOneByEmail(body.correoElectronico);
-}
+  }
   @Get()
   findAll() {
     return this.pacienteService.findAll();

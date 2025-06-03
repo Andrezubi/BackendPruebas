@@ -38,7 +38,7 @@ exports.AppModule = AppModule = __decorate([
             }), paciente_module_1.PacienteModule, jwt_1.JwtModule.register({
                 global: true,
                 secret: jwt_constant_1.jwtConstants.secret,
-                signOptions: { expiresIn: '1h' }
+                signOptions: { expiresIn: '1d' }
             }),],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

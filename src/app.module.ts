@@ -26,7 +26,7 @@ import { jwtConstants } from './constants/jwt.constant';
   }), PacienteModule,JwtModule.register({
     global: true,
     secret: jwtConstants.secret,
-    signOptions: {expiresIn:'1h'}
+    signOptions: {expiresIn:'1d'}
   }),],
   controllers: [AppController],
   providers: [AppService],

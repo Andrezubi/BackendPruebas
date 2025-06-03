@@ -7,7 +7,25 @@ export declare class PacienteController {
     constructor(pacienteService: PacienteService);
     create(createPacienteDto: CreatePacienteDto): Promise<import("../entities/users").Paciente>;
     login(loginPacienteDto: LoginPacienteDto): Promise<{
-        token: string;
+        access_token: string;
+        paciente: {
+            id: string;
+            ci: number;
+            nombre: string;
+            apellido: string;
+            fechaNac: string;
+            penalizado: boolean;
+            estadoCivil: string;
+            direccion: string;
+            correoElectronico: string;
+            tipoSangre: string;
+            telefono: number;
+            lugarNac: string;
+            genero: string;
+            reporte: import("../entities/report").ReporteMedico;
+            clinica: import("../entities/clinic").Clinica;
+            reservas: import("../entities/reserve").Reserva[];
+        };
     }>;
     findByEmail(body: {
         correoElectronico: string;

@@ -50,9 +50,14 @@ export class PacienteService {
       console.log('contrasenia incorrecta')
       throw new BadRequestException("contrasenia incorrecta")
     }
-    const payload ={newPaciente}
-    const token =await this.jwtService.signAsync(payload)
-    return {token}
+    const { contrasenia, ...pacienteData } = newPaciente;
+  const payload = { newPaciente: pacienteData };  // <-- Ensure payload structure
+
+  const token = await this.jwtService.signAsync(payload); 
+  return{
+    access_token: token,
+    paciente: pacienteData
+  };
 
   }
 

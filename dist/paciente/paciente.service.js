@@ -50,9 +50,13 @@ let PacienteService = class PacienteService {
             console.log('contrasenia incorrecta');
             throw new common_1.BadRequestException("contrasenia incorrecta");
         }
-        const payload = { newPaciente };
+        const { contrasenia, ...pacienteData } = newPaciente;
+        const payload = { newPaciente: pacienteData };
         const token = await this.jwtService.signAsync(payload);
-        return { token };
+        return {
+            access_token: token,
+            paciente: pacienteData
+        };
     }
     update(id, updatePacienteDto) {
         return `This action updates a #${id} paciente`;

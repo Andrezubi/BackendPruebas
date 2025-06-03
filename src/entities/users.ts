@@ -19,6 +19,7 @@ export class Paciente{
 
     @Column()
     apellido: string
+    
     @Column()
     contrasenia:string
 

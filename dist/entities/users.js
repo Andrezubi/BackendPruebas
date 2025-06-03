@@ -58,7 +58,7 @@ __decorate([
 ], Paciente.prototype, "contrasenia", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], Paciente.prototype, "fechaNac", void 0);
 __decorate([
     (0, typeorm_1.Column)({ default: false }),
@@ -73,7 +73,7 @@ __decorate([
     __metadata("design:type", String)
 ], Paciente.prototype, "direccion", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ unique: true }),
     __metadata("design:type", String)
 ], Paciente.prototype, "correoElectronico", void 0);
 __decorate([

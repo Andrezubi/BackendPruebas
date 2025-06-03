@@ -18,6 +18,8 @@ const report_1 = require("./entities/report");
 const reserve_1 = require("./entities/reserve");
 const shift_1 = require("./entities/shift");
 const paciente_module_1 = require("./paciente/paciente.module");
+const jwt_1 = require("@nestjs/jwt");
+const jwt_constant_1 = require("./constants/jwt.constant");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -32,8 +34,12 @@ exports.AppModule = AppModule = __decorate([
                 database: "saludtotaldb",
                 synchronize: true,
                 logging: true,
-                entities: [users_1.Paciente, users_1.Medico, clinic_1.Clinica, report_1.ReporteMedico, reserve_1.Reserva, shift_1.TurnoMedico, specialty_1.Especialidad],
-            }), paciente_module_1.PacienteModule],
+                entities: [users_1.Paciente, users_1.Medico, clinic_1.Clinica, report_1.ReporteMedico, reserve_1.Reserva, shift_1.TurnoMedico, specialty_1.Especialidad, users_1.Admin],
+            }), paciente_module_1.PacienteModule, jwt_1.JwtModule.register({
+                global: true,
+                secret: jwt_constant_1.jwtConstants.secret,
+                signOptions: { expiresIn: '1h' }
+            }),],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

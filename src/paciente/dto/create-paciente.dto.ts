@@ -10,4 +10,5 @@ export class CreatePacienteDto {
     telefono: number
     lugarNac: string
     genero : string
+    fechaNac: string
 }

@@ -13,6 +13,7 @@ class CreatePacienteDto {
     telefono;
     lugarNac;
     genero;
+    fechaNac;
 }
 exports.CreatePacienteDto = CreatePacienteDto;
 //# sourceMappingURL=create-paciente.dto.js.map

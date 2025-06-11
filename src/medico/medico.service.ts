@@ -13,8 +13,7 @@ export class MedicoService {
   constructor(@InjectRepository(Medico) 
   private readonly medicoRepository: Repository<Medico>
 ,  private readonly jwtService: JwtService
-){
-  }
+){}
 
   create(createMedicoDto: CreateMedicoDto) {
     const newMedico= this.medicoRepository.create({...createMedicoDto,fechaNac: new Date()});

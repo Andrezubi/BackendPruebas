@@ -21,6 +21,7 @@ const paciente_module_1 = require("./paciente/paciente.module");
 const medico_module_1 = require("./medico/medico.module");
 const jwt_1 = require("@nestjs/jwt");
 const jwt_constant_1 = require("./constants/jwt.constant");
+const administrador_module_1 = require("./administrador/administrador.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -45,6 +46,7 @@ exports.AppModule = AppModule = __decorate([
                 secret: jwt_constant_1.jwtConstants.secret,
                 signOptions: { expiresIn: '1h' },
             }),
+            administrador_module_1.AdministradorModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

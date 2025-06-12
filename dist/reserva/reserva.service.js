@@ -16,9 +16,8 @@ exports.ReservaService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
-const reserva_entity_1 = require("./entities/reserva.entity");
+const reserve_1 = require("../entities/reserve");
 const users_1 = require("../entities/users");
-const users_2 = require("../entities/users");
 const clinic_1 = require("../entities/clinic");
 let ReservaService = class ReservaService {
     reservaRepo;
@@ -30,6 +29,14 @@ let ReservaService = class ReservaService {
         this.pacienteRepo = pacienteRepo;
         this.medicoRepo = medicoRepo;
         this.clinicaRepo = clinicaRepo;
+    }
+    async actualizarEstado(id, nuevoEstado) {
+        const reserva = await this.reservaRepo.findOne({ where: { id } });
+        if (!reserva) {
+            throw new common_1.NotFoundException(`Reserva con id ${id} no encontrada`);
+        }
+        reserva.estado = nuevoEstado;
+        return this.reservaRepo.save(reserva);
     }
     async createReserva(dto) {
         const paciente = await this.pacienteRepo.findOneBy({ ci: dto.ciPaciente });
@@ -55,9 +62,9 @@ let ReservaService = class ReservaService {
 exports.ReservaService = ReservaService;
 exports.ReservaService = ReservaService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_1.InjectRepository)(reserva_entity_1.Reserva)),
+    __param(0, (0, typeorm_1.InjectRepository)(reserve_1.Reserva)),
     __param(1, (0, typeorm_1.InjectRepository)(users_1.Paciente)),
-    __param(2, (0, typeorm_1.InjectRepository)(users_2.Medico)),
+    __param(2, (0, typeorm_1.InjectRepository)(users_1.Medico)),
     __param(3, (0, typeorm_1.InjectRepository)(clinic_1.Clinica)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         typeorm_2.Repository,

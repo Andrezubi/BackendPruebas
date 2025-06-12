@@ -1,11 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Reserva } from './entities/reserva.entity';
-import { Paciente } from 'src/entities/users';
-import { Medico } from 'src/entities/users';
+import { Reserva, EstadoReserva } from 'src/entities/reserve';
+import { Paciente, Medico } from 'src/entities/users';
 import { Clinica } from 'src/entities/clinic';
 import { CreateReservaDto } from './dto/create-reserva.dto';
+
 
 @Injectable()
 export class ReservaService {
@@ -19,6 +19,18 @@ export class ReservaService {
     @InjectRepository(Clinica)
     private readonly clinicaRepo: Repository<Clinica>,
   ) {}
+
+  // reserva.service.ts
+  async actualizarEstado(id: string, nuevoEstado: EstadoReserva): Promise<Reserva> {
+  const reserva = await this.reservaRepo.findOne({ where: { id } });
+
+  if (!reserva) {
+    throw new NotFoundException(`Reserva con id ${id} no encontrada`);
+  }
+
+  reserva.estado = nuevoEstado;
+  return this.reservaRepo.save(reserva);
+}
 
   async createReserva(dto: CreateReservaDto) {
     const paciente = await this.pacienteRepo.findOneBy({ ci: dto.ciPaciente });

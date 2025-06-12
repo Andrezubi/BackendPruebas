@@ -20,6 +20,7 @@ const report_1 = require("../entities/report");
 const historial_access_guard_1 = require("./guards/historial-access.guard");
 const create_reserva_dto_1 = require("./dto/create-reserva.dto");
 const reserva_service_1 = require("./reserva.service");
+const reserve_1 = require("../entities/reserve");
 let ReservaController = class ReservaController {
     reporteRepo;
     reservaService;
@@ -29,6 +30,9 @@ let ReservaController = class ReservaController {
     }
     createReserva(createReservaDto) {
         return this.reservaService.createReserva(createReservaDto);
+    }
+    async actualizarEstadoReserva(id, nuevoEstado) {
+        return this.reservaService.actualizarEstado(id, nuevoEstado);
     }
     async obtenerHistorial(pacienteId) {
         return this.reporteRepo.find({
@@ -46,6 +50,14 @@ __decorate([
     __metadata("design:paramtypes", [create_reserva_dto_1.CreateReservaDto]),
     __metadata("design:returntype", void 0)
 ], ReservaController.prototype, "createReserva", null);
+__decorate([
+    (0, common_1.Patch)(':id/estado'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)('estado')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", Promise)
+], ReservaController.prototype, "actualizarEstadoReserva", null);
 __decorate([
     (0, common_1.UseGuards)(historial_access_guard_1.HistorialAccessGuard),
     (0, common_1.Get)('paciente/:pacienteId/reportes'),

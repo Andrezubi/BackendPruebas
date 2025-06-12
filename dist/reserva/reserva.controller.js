@@ -21,6 +21,7 @@ const historial_access_guard_1 = require("./guards/historial-access.guard");
 const create_reserva_dto_1 = require("./dto/create-reserva.dto");
 const reserva_service_1 = require("./reserva.service");
 const reserve_1 = require("../entities/reserve");
+const passport_1 = require("@nestjs/passport");
 let ReservaController = class ReservaController {
     reporteRepo;
     reservaService;
@@ -35,11 +36,7 @@ let ReservaController = class ReservaController {
         return this.reservaService.actualizarEstado(id, nuevoEstado);
     }
     async obtenerHistorial(pacienteId) {
-        return this.reporteRepo.find({
-            where: { pacientes: { id: pacienteId } },
-            relations: ['medicos'],
-            order: { fechaRegistro: 'DESC' },
-        });
+        return this.reservaService.obtenerHistorialPorPaciente(pacienteId);
     }
 };
 exports.ReservaController = ReservaController;
@@ -59,8 +56,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ReservaController.prototype, "actualizarEstadoReserva", null);
 __decorate([
-    (0, common_1.UseGuards)(historial_access_guard_1.HistorialAccessGuard),
-    (0, common_1.Get)('paciente/:pacienteId/reportes'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), historial_access_guard_1.HistorialAccessGuard),
+    (0, common_1.Get)('paciente/:pacienteId/historial'),
     __param(0, (0, common_1.Param)('pacienteId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

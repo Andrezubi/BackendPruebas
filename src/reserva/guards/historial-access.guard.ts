@@ -13,14 +13,15 @@ export class HistorialAccessGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const req = context.switchToHttp().getRequest();
     const medicoId = req.user.id;
-    const pacienteId = req.params.pacienteId;
+    const pacienteId = req.params.pacienteId;  // mantener como string
 
     const reservaActiva = await this.reservaRepo.findOne({
       where: {
         estado: EstadoReserva.EN_CURSO,
         medico: { id: medicoId },
-        paciente: { id: pacienteId },
+        paciente: { id: pacienteId },  // usar string aquí
       },
+      relations: ['medico', 'paciente'],
     });
 
     if (!reservaActiva) {

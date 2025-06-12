@@ -7,9 +7,10 @@ import { HistorialAccessGuard } from './guards/historial-access.guard';
 import { ReporteMedico } from 'src/entities/report';
 import { Medico, Paciente } from 'src/entities/users';
 import { Clinica } from 'src/entities/clinic';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Reserva, ReporteMedico, Paciente, Medico, Clinica])],
+  imports: [TypeOrmModule.forFeature([Reserva, ReporteMedico, Paciente, Medico, Clinica]), AuthModule],
   controllers: [ReservaController],
   providers: [ReservaService, HistorialAccessGuard],
 })

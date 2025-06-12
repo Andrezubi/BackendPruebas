@@ -9,5 +9,5 @@ export declare class ReservaController {
     constructor(reporteRepo: Repository<ReporteMedico>, reservaService: ReservaService);
     createReserva(createReservaDto: CreateReservaDto): Promise<import("src/entities/reserve").Reserva>;
     actualizarEstadoReserva(id: string, nuevoEstado: EstadoReserva): Promise<import("src/entities/reserve").Reserva>;
-    obtenerHistorial(pacienteId: string): Promise<ReporteMedico[]>;
+    obtenerHistorial(pacienteId: string): Promise<import("src/entities/reserve").Reserva[]>;
 }

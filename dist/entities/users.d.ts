@@ -9,7 +9,7 @@ export declare class Paciente {
     nombre: string;
     apellido: string;
     contrasenia: string;
-    fechaNac: Date;
+    fechaNac: string;
     penalizado: boolean;
     estadoCivil: string;
     direccion: string;

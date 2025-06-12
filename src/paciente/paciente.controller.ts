@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { PacienteService } from './paciente.service';
 import { CreatePacienteDto } from './dto/create-paciente.dto';
 import { UpdatePacienteDto } from './dto/update-paciente.dto';
+import { LoginPacienteDto } from './dto/login-paciente.dto';
 
 @Controller('paciente')
 export class PacienteController {
@@ -11,7 +12,15 @@ export class PacienteController {
   create(@Body() createPacienteDto: CreatePacienteDto) {
     return this.pacienteService.create(createPacienteDto);
   }
+  @Post('login')
+  login(@Body() loginPacienteDto:LoginPacienteDto){
+    return this.pacienteService.login(loginPacienteDto);
+  }
 
+  @Post('email')
+  findByEmail(@Body() body: { correoElectronico: string }) {
+  return this.pacienteService.findOneByEmail(body.correoElectronico);
+  }
   @Get()
   findAll() {
     return this.pacienteService.findAll();

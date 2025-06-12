@@ -10,52 +10,36 @@ import { Especialidad } from "./specialty";
 export class Paciente{
     @PrimaryGeneratedColumn("uuid")
     id: string
-
     @Column({unique:true})
     ci:number
-
     @Column()
     nombre: string
-
     @Column()
     apellido: string
-    
     @Column()
     contrasenia:string
-
     @Column()
-    fechaNac: Date
-    
+    fechaNac: string
     @Column({default:false})
     penalizado: boolean
-
     @Column()
     estadoCivil: string
-
     @Column()
     direccion: string
-
-    @Column()
+    @Column({unique:true})
     correoElectronico: string
-
     @Column()
     tipoSangre: string
-
     @Column()
     telefono: number
-
     @Column()
     lugarNac: string
-
     @Column()
     genero : string
-
     @OneToMany(() => ReporteMedico, (reporte) => reporte.pacientes)
     reporte: ReporteMedico; 
-
     @ManyToOne(() => Clinica, (clinica) => clinica.pacientes)
     clinica: Clinica
-
     @OneToMany(() => Reserva, (reserva) => reserva.pacientes) // note: we will create author property in the Photo class below
     reservas: Reserva[]
 }
@@ -137,6 +121,7 @@ export class Admin {
 
     @Column()
     apellido: string
+    
     @Column()
     contrasenia:string
 

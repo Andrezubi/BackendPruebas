@@ -1,6 +1,6 @@
 export class CreateReservaDto {
-  nombrePaciente: string;
-  nombreMedico: string;
+  ciPaciente: number;
+  ciMedico: number;
   nombreClinica: string;
   horaInicio: string;
   horaFin: string;

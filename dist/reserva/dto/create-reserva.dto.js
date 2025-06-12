@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FinalizarReservaDto = exports.CreateReservaDto = void 0;
 class CreateReservaDto {
-    nombrePaciente;
-    nombreMedico;
+    ciPaciente;
+    ciMedico;
     nombreClinica;
     horaInicio;
     horaFin;

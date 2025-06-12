@@ -32,13 +32,13 @@ let ReservaService = class ReservaService {
         this.clinicaRepo = clinicaRepo;
     }
     async createReserva(dto) {
-        const paciente = await this.pacienteRepo.findOneBy({ nombre: dto.nombrePaciente });
-        const medico = await this.medicoRepo.findOneBy({ nombre: dto.nombreMedico });
+        const paciente = await this.pacienteRepo.findOneBy({ ci: dto.ciPaciente });
+        const medico = await this.medicoRepo.findOneBy({ ci: dto.ciMedico });
         const clinica = await this.clinicaRepo.findOneBy({ nombre: dto.nombreClinica });
         if (!paciente)
-            throw new common_1.NotFoundException(`Paciente no encontrado: ${dto.nombrePaciente}`);
+            throw new common_1.NotFoundException(`Paciente no encontrado: ${dto.ciPaciente}`);
         if (!medico)
-            throw new common_1.NotFoundException(`Médico no encontrado: ${dto.nombreMedico}`);
+            throw new common_1.NotFoundException(`Médico no encontrado: ${dto.ciMedico}`);
         if (!clinica)
             throw new common_1.NotFoundException(`Clínica no encontrada: ${dto.nombreClinica}`);
         const reserva = this.reservaRepo.create({

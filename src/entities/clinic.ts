@@ -17,6 +17,9 @@ export class Clinica{
     @Column()
     contrasenia:string
 
+    @Column()
+    correoElectronico: string
+
     @OneToMany(() => Paciente, (paciente) => paciente.clinica) // note: we will create author property in the Photo class below
     pacientes: Paciente[]
 

@@ -14,6 +14,8 @@ class CreateMedicoDto {
     telefono;
     lugarNac;
     genero;
+    clinica;
+    especialidad;
 }
 exports.CreateMedicoDto = CreateMedicoDto;
 //# sourceMappingURL=create-medico.dto.js.map

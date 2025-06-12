@@ -21,12 +21,37 @@ const jwt_1 = require("@nestjs/jwt");
 let MedicoService = class MedicoService {
     medicoRepository;
     jwtService;
-    constructor(medicoRepository, jwtService) {
+    clinicaRepository;
+    especialidadesRepository;
+    constructor(medicoRepository, jwtService, clinicaRepository, especialidadesRepository) {
         this.medicoRepository = medicoRepository;
         this.jwtService = jwtService;
+        this.clinicaRepository = clinicaRepository;
+        this.especialidadesRepository = especialidadesRepository;
     }
-    create(createMedicoDto) {
-        const newMedico = this.medicoRepository.create({ ...createMedicoDto });
+    async create(createMedicoDto) {
+        const clinica = await this.clinicaRepository.findOneBy({ nombre: createMedicoDto.clinica });
+        const especialidad = await this.especialidadesRepository.findOneBy({ nombre: createMedicoDto.especialidad });
+        if (!especialidad)
+            throw new common_1.NotFoundException(`Especialidad invalida: ${createMedicoDto.especialidad}`);
+        if (!clinica)
+            throw new common_1.NotFoundException(`Clínica no encontrada: ${createMedicoDto.clinica}`);
+        const newMedico = this.medicoRepository.create({
+            ci: createMedicoDto.ci,
+            nombre: createMedicoDto.nombre,
+            apellido: createMedicoDto.apellido,
+            contrasenia: createMedicoDto.contrasenia,
+            fechaNac: createMedicoDto.fechaNac,
+            estadoCivil: createMedicoDto.estadoCivil,
+            direccion: createMedicoDto.direccion,
+            correoElectronico: createMedicoDto.correoElectronico,
+            tipoSangre: createMedicoDto.tipoSangre,
+            telefono: createMedicoDto.telefono,
+            lugarNac: createMedicoDto.lugarNac,
+            genero: createMedicoDto.genero,
+            clinica,
+            especialidad
+        });
         return this.medicoRepository.save(newMedico);
     }
     findAll() {
@@ -65,6 +90,8 @@ exports.MedicoService = MedicoService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(users_1.Medico)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
-        jwt_1.JwtService])
+        jwt_1.JwtService,
+        typeorm_2.Repository,
+        typeorm_2.Repository])
 ], MedicoService);
 //# sourceMappingURL=medico.service.js.map

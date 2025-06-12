@@ -5,6 +5,7 @@ export declare class Clinica {
     id: string;
     nombre: string;
     contrasenia: string;
+    correoElectronico: string;
     pacientes: Paciente[];
     reservas: Reserva[];
     turnos: TurnoMedico[];

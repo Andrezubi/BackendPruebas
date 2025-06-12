@@ -11,5 +11,7 @@ export class CreateMedicoDto {
   telefono: number;
   lugarNac: string;
   genero: string;
+  clinica: string;
+  especialidad: string;
 }
 

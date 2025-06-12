@@ -18,6 +18,7 @@ let Clinica = class Clinica {
     id;
     nombre;
     contrasenia;
+    correoElectronico;
     pacientes;
     reservas;
     turnos;
@@ -38,6 +39,10 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Clinica.prototype, "contrasenia", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Clinica.prototype, "correoElectronico", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => users_1.Paciente, (paciente) => paciente.clinica),
     __metadata("design:type", Array)

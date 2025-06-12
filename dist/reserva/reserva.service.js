@@ -38,6 +38,13 @@ let ReservaService = class ReservaService {
         reserva.estado = nuevoEstado;
         return this.reservaRepo.save(reserva);
     }
+    async obtenerHistorialPorPaciente(pacienteId) {
+        return this.reservaRepo.find({
+            where: { paciente: { id: pacienteId } },
+            relations: ['medico', 'paciente'],
+            order: { fecha: 'DESC' },
+        });
+    }
     async createReserva(dto) {
         const paciente = await this.pacienteRepo.findOneBy({ ci: dto.ciPaciente });
         const medico = await this.medicoRepo.findOneBy({ ci: dto.ciMedico });

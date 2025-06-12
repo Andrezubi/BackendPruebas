@@ -30,7 +30,15 @@ export class ReservaService {
 
   reserva.estado = nuevoEstado;
   return this.reservaRepo.save(reserva);
-}
+  }
+
+  async obtenerHistorialPorPaciente(pacienteId: string) {
+    return this.reservaRepo.find({
+      where: { paciente: { id: pacienteId } },
+      relations: ['medico', 'paciente'],
+      order: { fecha: 'DESC' }, // o la propiedad que uses para el orden cronológico
+    });
+  }
 
   async createReserva(dto: CreateReservaDto) {
     const paciente = await this.pacienteRepo.findOneBy({ ci: dto.ciPaciente });
@@ -53,52 +61,3 @@ export class ReservaService {
     return this.reservaRepo.save(reserva);
   }
 }
-
-/*import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Reserva } from './entities/reserva.entity';
-import { CreateReservaDto } from './dto/create-reserva.dto';
-import { UpdateReservaDto } from './dto/update-reserva.dto';
-
-@Injectable()
-export class ReservaService {
-  constructor(
-    @InjectRepository(Reserva)
-    private readonly reservaRepo: Repository<Reserva>,
-  ) {}
-
-  async create(createReservaDto: CreateReservaDto) {
-    const reserva = this.reservaRepo.create(createReservaDto);
-    return this.reservaRepo.save(reserva);
-  }
-
-  async findAll() {
-    return this.reservaRepo.find({
-      relations: ['paciente', 'medico', 'clinica'], // opcional, si necesitas traer relaciones
-    });
-  }
-
-  async findOne(id: string) {
-    const reserva = await this.reservaRepo.findOne({
-      where: { id },
-      relations: ['paciente', 'medico', 'clinica'],
-    });
-    if (!reserva) throw new NotFoundException('Reserva no encontrada');
-    return reserva;
-  }
-
-  async update(id: string, updateReservaDto: UpdateReservaDto) {
-    const reserva = await this.reservaRepo.preload({
-      id,
-      ...updateReservaDto,
-    });
-    if (!reserva) throw new NotFoundException('Reserva no encontrada');
-    return this.reservaRepo.save(reserva);
-  }
-
-  async remove(id: string) {
-    const reserva = await this.findOne(id);
-    return this.reservaRepo.remove(reserva);
-  }
-}*/

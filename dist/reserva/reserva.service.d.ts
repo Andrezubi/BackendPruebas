@@ -10,5 +10,6 @@ export declare class ReservaService {
     private readonly clinicaRepo;
     constructor(reservaRepo: Repository<Reserva>, pacienteRepo: Repository<Paciente>, medicoRepo: Repository<Medico>, clinicaRepo: Repository<Clinica>);
     actualizarEstado(id: string, nuevoEstado: EstadoReserva): Promise<Reserva>;
+    obtenerHistorialPorPaciente(pacienteId: string): Promise<Reserva[]>;
     createReserva(dto: CreateReservaDto): Promise<Reserva>;
 }

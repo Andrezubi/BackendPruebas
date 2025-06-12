@@ -16,12 +16,13 @@ const historial_access_guard_1 = require("./guards/historial-access.guard");
 const report_1 = require("../entities/report");
 const users_1 = require("../entities/users");
 const clinic_1 = require("../entities/clinic");
+const auth_module_1 = require("../auth/auth.module");
 let ReservaModule = class ReservaModule {
 };
 exports.ReservaModule = ReservaModule;
 exports.ReservaModule = ReservaModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([reserve_1.Reserva, report_1.ReporteMedico, users_1.Paciente, users_1.Medico, clinic_1.Clinica])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([reserve_1.Reserva, report_1.ReporteMedico, users_1.Paciente, users_1.Medico, clinic_1.Clinica]), auth_module_1.AuthModule],
         controllers: [reserva_controller_1.ReservaController],
         providers: [reserva_service_1.ReservaService, historial_access_guard_1.HistorialAccessGuard],
     })

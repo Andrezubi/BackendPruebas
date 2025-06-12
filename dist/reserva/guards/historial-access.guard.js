@@ -32,6 +32,7 @@ let HistorialAccessGuard = class HistorialAccessGuard {
                 medico: { id: medicoId },
                 paciente: { id: pacienteId },
             },
+            relations: ['medico', 'paciente'],
         });
         if (!reservaActiva) {
             throw new common_1.ForbiddenException('No tiene una reserva activa con este paciente');

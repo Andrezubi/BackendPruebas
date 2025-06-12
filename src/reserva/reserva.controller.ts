@@ -6,6 +6,7 @@ import { HistorialAccessGuard } from './guards/historial-access.guard';
 import { CreateReservaDto } from './dto/create-reserva.dto';
 import { ReservaService } from './reserva.service';
 import { EstadoReserva } from 'src/entities/reserve';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('reserva')
 export class ReservaController {
@@ -29,13 +30,16 @@ export class ReservaController {
   }
 
   // Este endpoint permite que solo médicos con reserva activa vean el historial del paciente
-  @UseGuards(HistorialAccessGuard)
-  @Get('paciente/:pacienteId/reportes')
+  @UseGuards(AuthGuard('jwt'), HistorialAccessGuard)
+  @Get('paciente/:pacienteId/historial')
   async obtenerHistorial(@Param('pacienteId') pacienteId: string) {
-    return this.reporteRepo.find({
+      return this.reservaService.obtenerHistorialPorPaciente(pacienteId);
+
+      
+    /*return this.reporteRepo.find({
       where: { pacientes: { id: pacienteId } },
       relations: ['medicos'],
       order: { fechaRegistro: 'DESC' },
-    });
+    });*/
   }
 }

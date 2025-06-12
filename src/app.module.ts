@@ -14,6 +14,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants/jwt.constant';
 import { AdministradorModule } from './administrador/administrador.module';
 import { ReservaModule } from './reserva/reserva.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [

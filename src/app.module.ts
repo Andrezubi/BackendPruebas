@@ -16,6 +16,19 @@ import { AdministradorModule } from './administrador/administrador.module';
 import { ReservaModule } from './reserva/reserva.module';
 
 @Module({
+<<<<<<< HEAD
+  imports: [TypeOrmModule.forRoot({
+    type: "mysql",
+    host: "127.0.0.1",
+    port: 3306,
+    username: "root",
+    password: "1234",
+    database: "saludtotaldb",
+    synchronize: true,
+    logging: true,
+    entities: [Paciente,Medico,Clinica,ReporteMedico,Reserva,TurnoMedico,Especialidad],
+  }), PacienteModule],
+=======
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
@@ -38,6 +51,7 @@ import { ReservaModule } from './reserva/reserva.module';
     AdministradorModule,
     ReservaModule,
   ],
+>>>>>>> 03d4a943e0884f0e3bc4170a6b98c9491ef0ae98
   controllers: [AppController],
   providers: [AppService],
 })

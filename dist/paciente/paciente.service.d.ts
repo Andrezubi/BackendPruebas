@@ -11,3 +11,4 @@ export declare class PacienteService {
     update(id: number, updatePacienteDto: UpdatePacienteDto): string;
     remove(id: number): string;
 }
+''

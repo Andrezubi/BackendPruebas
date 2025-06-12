@@ -5,7 +5,7 @@ import { LoginAdministradorDto } from './dto/login-administrador.dto';
 export declare class AdministradorController {
     private readonly administradorService;
     constructor(administradorService: AdministradorService);
-    create(createAdministradorDto: CreateAdministradorDto): Promise<import("../entities/users").Admin>;
+    create(createAdministradorDto: CreateAdministradorDto): Promise<import("../entities/users").Admin[]>;
     login(loginMedicoDto: LoginAdministradorDto): Promise<{
         token: string;
     }>;

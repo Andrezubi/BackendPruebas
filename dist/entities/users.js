@@ -155,7 +155,7 @@ __decorate([
 ], Medico.prototype, "clinica", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], Medico.prototype, "fechaNac", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
@@ -251,7 +251,7 @@ __decorate([
 ], Admin.prototype, "rol", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], Admin.prototype, "fechaNac", void 0);
 __decorate([
     (0, typeorm_1.Column)(),

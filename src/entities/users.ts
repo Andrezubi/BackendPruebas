@@ -65,7 +65,7 @@ export class Medico {
     clinica: Clinica
 
     @Column()
-    fechaNac: Date
+    fechaNac: string
     
     @Column()
     penalizado: boolean
@@ -121,7 +121,6 @@ export class Admin {
 
     @Column()
     apellido: string
-    
     @Column()
     contrasenia:string
 
@@ -129,7 +128,7 @@ export class Admin {
     rol:string
 
     @Column()
-    fechaNac: Date
+    fechaNac: string
     
     @Column()
     estadoCivil: string

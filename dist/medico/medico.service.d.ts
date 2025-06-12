@@ -8,7 +8,7 @@ export declare class MedicoService {
     private readonly medicoRepository;
     private readonly jwtService;
     constructor(medicoRepository: Repository<Medico>, jwtService: JwtService);
-    create(createMedicoDto: CreateMedicoDto): Promise<Medico>;
+    create(createMedicoDto: CreateMedicoDto): Promise<Medico[]>;
     findAll(): string;
     findOne(id: number): string;
     findOneByEmail(correoElectronico: string): Promise<Medico | null>;

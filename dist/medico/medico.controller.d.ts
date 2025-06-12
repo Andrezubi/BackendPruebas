@@ -5,7 +5,7 @@ import { LoginMedicoDto } from './dto/login-medico.dto';
 export declare class MedicoController {
     private readonly medicoService;
     constructor(medicoService: MedicoService);
-    create(createMedicoDto: CreateMedicoDto): Promise<import("../entities/users").Medico>;
+    create(createMedicoDto: CreateMedicoDto): Promise<import("../entities/users").Medico[]>;
     login(loginMedicoDto: LoginMedicoDto): Promise<{
         token: string;
     }>;

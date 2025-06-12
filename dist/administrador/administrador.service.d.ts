@@ -8,7 +8,7 @@ export declare class AdministradorService {
     private readonly administradorRepository;
     private readonly jwtService;
     constructor(administradorRepository: Repository<Admin>, jwtService: JwtService);
-    create(createAdministradorDto: CreateAdministradorDto): Promise<Admin>;
+    create(createAdministradorDto: CreateAdministradorDto): Promise<Admin[]>;
     findAll(): string;
     findOne(id: number): string;
     findOneByEmail(correoElectronico: string): Promise<Admin | null>;

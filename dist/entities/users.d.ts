@@ -29,7 +29,7 @@ export declare class Medico {
     apellido: string;
     contrasenia: string;
     clinica: Clinica;
-    fechaNac: Date;
+    fechaNac: string;
     penalizado: boolean;
     estadoCivil: string;
     direccion: string;
@@ -50,7 +50,7 @@ export declare class Admin {
     apellido: string;
     contrasenia: string;
     rol: string;
-    fechaNac: Date;
+    fechaNac: string;
     estadoCivil: string;
     direccion: string;
     correoElectronico: string;

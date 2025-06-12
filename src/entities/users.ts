@@ -121,7 +121,6 @@ export class Admin {
 
     @Column()
     apellido: string
-    
     @Column()
     contrasenia:string
 

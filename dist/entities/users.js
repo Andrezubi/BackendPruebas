@@ -158,7 +158,7 @@ __decorate([
     __metadata("design:type", String)
 ], Medico.prototype, "fechaNac", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ default: false }),
     __metadata("design:type", Boolean)
 ], Medico.prototype, "penalizado", void 0);
 __decorate([

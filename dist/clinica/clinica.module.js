@@ -6,22 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MedicoModule = void 0;
+exports.ClinicaModule = void 0;
 const common_1 = require("@nestjs/common");
-const medico_service_1 = require("./medico.service");
-const medico_controller_1 = require("./medico.controller");
+const clinica_service_1 = require("./clinica.service");
+const clinica_controller_1 = require("./clinica.controller");
 const typeorm_1 = require("@nestjs/typeorm");
-const users_1 = require("../entities/users");
 const clinic_1 = require("../entities/clinic");
-const specialty_1 = require("../entities/specialty");
-let MedicoModule = class MedicoModule {
+let ClinicaModule = class ClinicaModule {
 };
-exports.MedicoModule = MedicoModule;
-exports.MedicoModule = MedicoModule = __decorate([
+exports.ClinicaModule = ClinicaModule;
+exports.ClinicaModule = ClinicaModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([users_1.Medico, clinic_1.Clinica, specialty_1.Especialidad])],
-        controllers: [medico_controller_1.MedicoController],
-        providers: [medico_service_1.MedicoService],
+        imports: [typeorm_1.TypeOrmModule.forFeature([clinic_1.Clinica])],
+        controllers: [clinica_controller_1.ClinicaController],
+        providers: [clinica_service_1.ClinicaService],
     })
-], MedicoModule);
-//# sourceMappingURL=medico.module.js.map
+], ClinicaModule);
+//# sourceMappingURL=clinica.module.js.map

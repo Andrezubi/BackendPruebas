@@ -67,7 +67,7 @@ export class Medico {
     @Column()
     fechaNac: string
     
-    @Column()
+    @Column({default:false})
     penalizado: boolean
 
     @Column()

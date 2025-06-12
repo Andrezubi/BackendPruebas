@@ -18,6 +18,8 @@ const typeorm_1 = require("@nestjs/typeorm");
 const users_1 = require("../entities/users");
 const typeorm_2 = require("typeorm");
 const jwt_1 = require("@nestjs/jwt");
+const clinic_1 = require("../entities/clinic");
+const specialty_1 = require("../entities/specialty");
 let MedicoService = class MedicoService {
     medicoRepository;
     jwtService;
@@ -89,6 +91,8 @@ exports.MedicoService = MedicoService;
 exports.MedicoService = MedicoService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(users_1.Medico)),
+    __param(2, (0, typeorm_1.InjectRepository)(clinic_1.Clinica)),
+    __param(3, (0, typeorm_1.InjectRepository)(specialty_1.Especialidad)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         jwt_1.JwtService,
         typeorm_2.Repository,

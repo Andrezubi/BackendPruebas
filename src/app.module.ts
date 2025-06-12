@@ -15,6 +15,7 @@ import { jwtConstants } from './constants/jwt.constant';
 import { AdministradorModule } from './administrador/administrador.module';
 import { ReservaModule } from './reserva/reserva.module';
 import { AuthModule } from './auth/auth.module';
+import { ClinicaModule } from './clinica/clinica.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     AdministradorModule,
     ReservaModule,
+    ClinicaModule,
   ],
   controllers: [AppController],
   providers: [AppService],

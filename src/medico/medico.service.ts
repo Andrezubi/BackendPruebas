@@ -15,8 +15,8 @@ export class MedicoService {
   constructor(@InjectRepository(Medico) 
   private readonly medicoRepository: Repository<Medico>
 ,  private readonly jwtService: JwtService,
-private readonly clinicaRepository: Repository<Clinica>,
-private readonly especialidadesRepository: Repository<Especialidad>
+@InjectRepository(Clinica) private readonly clinicaRepository: Repository<Clinica>,
+@InjectRepository(Especialidad) private readonly especialidadesRepository: Repository<Especialidad>
 ){}
 
   async create(createMedicoDto: CreateMedicoDto) {

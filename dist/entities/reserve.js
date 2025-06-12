@@ -22,8 +22,8 @@ var EstadoReserva;
 })(EstadoReserva || (exports.EstadoReserva = EstadoReserva = {}));
 let Reserva = class Reserva {
     id;
-    medicos;
-    pacientes;
+    medico;
+    paciente;
     clinica;
     estado;
     horaInicio;
@@ -37,12 +37,12 @@ __decorate([
 ], Reserva.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => users_1.Medico, (medico) => medico.reservas),
-    __metadata("design:type", Array)
-], Reserva.prototype, "medicos", void 0);
+    __metadata("design:type", users_1.Medico)
+], Reserva.prototype, "medico", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => users_1.Paciente, (paciente) => paciente.reservas),
-    __metadata("design:type", Array)
-], Reserva.prototype, "pacientes", void 0);
+    __metadata("design:type", users_1.Paciente)
+], Reserva.prototype, "paciente", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => clinic_1.Clinica, (clinica) => clinica.reservas),
     __metadata("design:type", clinic_1.Clinica)

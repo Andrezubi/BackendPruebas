@@ -26,7 +26,7 @@ let MedicoService = class MedicoService {
         this.jwtService = jwtService;
     }
     create(createMedicoDto) {
-        const newMedico = this.medicoRepository.create({ ...createMedicoDto, fechaNac: new Date() });
+        const newMedico = this.medicoRepository.create({ ...createMedicoDto });
         return this.medicoRepository.save(newMedico);
     }
     findAll() {

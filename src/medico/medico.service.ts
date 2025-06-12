@@ -16,7 +16,7 @@ export class MedicoService {
 ){}
 
   create(createMedicoDto: CreateMedicoDto) {
-    const newMedico= this.medicoRepository.create({...createMedicoDto,fechaNac: new Date()});
+    const newMedico= this.medicoRepository.create({...createMedicoDto});
     return this.medicoRepository.save(newMedico);
     
   }

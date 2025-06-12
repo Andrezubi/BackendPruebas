@@ -4,7 +4,7 @@ export declare class CreateAdministradorDto {
     apellido: string;
     contrasenia: string;
     rol: string;
-    fechaNac: Date;
+    fechaNac: string;
     estadoCivil: string;
     direccion: string;
     correoElectronico: string;

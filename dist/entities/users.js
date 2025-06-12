@@ -101,7 +101,7 @@ __decorate([
     __metadata("design:type", clinic_1.Clinica)
 ], Paciente.prototype, "clinica", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => reserve_1.Reserva, (reserva) => reserva.pacientes),
+    (0, typeorm_1.OneToMany)(() => reserve_1.Reserva, (reserva) => reserva.paciente),
     __metadata("design:type", Array)
 ], Paciente.prototype, "reservas", void 0);
 exports.Paciente = Paciente = __decorate([
@@ -202,7 +202,7 @@ __decorate([
     __metadata("design:type", specialty_1.Especialidad)
 ], Medico.prototype, "especialidad", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => reserve_1.Reserva, (reserva) => reserva.medicos),
+    (0, typeorm_1.OneToMany)(() => reserve_1.Reserva, (reserva) => reserva.medico),
     __metadata("design:type", Array)
 ], Medico.prototype, "reservas", void 0);
 exports.Medico = Medico = __decorate([

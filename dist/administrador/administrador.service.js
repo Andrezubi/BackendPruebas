@@ -26,7 +26,7 @@ let AdministradorService = class AdministradorService {
         this.jwtService = jwtService;
     }
     create(createAdministradorDto) {
-        const newMedico = this.administradorRepository.create({ ...createAdministradorDto, fechaNac: new Date() });
+        const newMedico = this.administradorRepository.create({ ...createAdministradorDto });
         return this.administradorRepository.save(newMedico);
     }
     findAll() {

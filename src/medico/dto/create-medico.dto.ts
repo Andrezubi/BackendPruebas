@@ -3,7 +3,7 @@ export class CreateMedicoDto {
   nombre: string;
   apellido: string;
   contrasenia: string;
-  fechaNac: Date;
+  fechaNac: string;
   estadoCivil: string;
   direccion: string;
   correoElectronico: string;

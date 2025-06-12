@@ -40,7 +40,7 @@ export class Paciente{
     reporte: ReporteMedico; 
     @ManyToOne(() => Clinica, (clinica) => clinica.pacientes)
     clinica: Clinica
-    @OneToMany(() => Reserva, (reserva) => reserva.pacientes) // note: we will create author property in the Photo class below
+    @OneToMany(() => Reserva, (reserva) => reserva.paciente) // note: we will create author property in the Photo class below
     reservas: Reserva[]
 }
 
@@ -65,7 +65,7 @@ export class Medico {
     clinica: Clinica
 
     @Column()
-    fechaNac: Date
+    fechaNac: string
     
     @Column()
     penalizado: boolean
@@ -100,7 +100,7 @@ export class Medico {
     @ManyToOne(() => Especialidad, (especialidad) => especialidad.medicos)
     especialidad: Especialidad;
 
-    @OneToMany(() => Reserva, (reserva) => reserva.medicos) // note: we will create author property in the Photo class below
+    @OneToMany(() => Reserva, (reserva) => reserva.medico) // note: we will create author property in the Photo class below
     reservas: Reserva[]
 
 }
@@ -129,7 +129,7 @@ export class Admin {
     rol:string
 
     @Column()
-    fechaNac: Date
+    fechaNac: string
     
     @Column()
     estadoCivil: string

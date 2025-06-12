@@ -15,7 +15,7 @@ export class AdministradorService {
   private readonly jwtService: JwtService
 ){}
   create(createAdministradorDto: CreateAdministradorDto) {
-    const newMedico= this.administradorRepository.create({...createAdministradorDto,fechaNac: new Date()});
+    const newMedico= this.administradorRepository.create({...createAdministradorDto});
     return this.administradorRepository.save(newMedico);
   }
 

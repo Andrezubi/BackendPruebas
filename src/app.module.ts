@@ -13,6 +13,7 @@ import { MedicoModule } from './medico/medico.module';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants/jwt.constant';
 import { AdministradorModule } from './administrador/administrador.module';
+import { ReservaModule } from './reserva/reserva.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { AdministradorModule } from './administrador/administrador.module';
       signOptions: { expiresIn: '1h' },
     }),
     AdministradorModule,
+    ReservaModule,
   ],
   controllers: [AppController],
   providers: [AppService],

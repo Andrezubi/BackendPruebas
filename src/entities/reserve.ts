@@ -16,13 +16,13 @@ export class Reserva{
     id: string
 
     @ManyToOne(() => Medico, (medico) => medico.reservas) // note: we will create author property in the Photo class below
-    medicos: Medico[]
+    medico: Medico;
     
     @ManyToOne(() => Paciente, (paciente) => paciente.reservas) // note: we will create author property in the Photo class below
-    pacientes: Paciente[]
+    paciente: Paciente;
 
     @ManyToOne(() => Clinica, (clinica) => clinica.reservas)
-    clinica: Clinica
+    clinica: Clinica;
 
     @Column({
     type: "enum",

@@ -7,8 +7,8 @@ export declare enum EstadoReserva {
 }
 export declare class Reserva {
     id: string;
-    medicos: Medico[];
-    pacientes: Paciente[];
+    medico: Medico;
+    paciente: Paciente;
     clinica: Clinica;
     estado: EstadoReserva;
     horaInicio: string;
